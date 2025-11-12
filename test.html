@@ -162,25 +162,25 @@
 
     <!-- html2canvas CDN 불러오기 -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-alpha.12/dist/html2canvas.min.js"></script>
+    
+<script>
+    const saveBtn = document.getElementById('saveBtn');
+    // 캡처 타겟을 document.body (전체 화면)로 변경
+    const captureTarget = document.body;
 
-    <script>
-        const saveBtn = document.getElementById('saveBtn');
-        const captureTarget = document.getElementById('capturePanel');
+    saveBtn.addEventListener('click', function() {
+        html2canvas(captureTarget).then(canvas => {
+            const imageURL = canvas.toDataURL('image/png');
 
-        saveBtn.addEventListener('click', function() {
-            html2canvas(captureTarget).then(canvas => {
-                // PNG 데이터 생성
-                const imageURL = canvas.toDataURL('image/png');
-
-                // a 태그 생성 후 다운로드 트리거
-                const link = document.createElement('a');
-                link.href = imageURL;
-                link.download = 'torder-captured.png';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
+            const link = document.createElement('a');
+            link.href = imageURL;
+            link.download = 'torder-fullscreen-captured.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
