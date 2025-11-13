@@ -118,14 +118,22 @@
             background-color: #0056b3;
         }
 
-              #board01 {
-            width: 100%; height: 100%;
+        /* 보드: 2x2 그리드로 변경하여 우측을 4등분 */
+        #board01 {
+            width: 100%;
+            height: 100%;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 1fr 1fr;
-            gap: 4px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 8px;
+            box-sizing: border-box;
+            padding: 8px;
+            align-items: stretch;
+            justify-items: stretch;
             overflow: hidden;
+            background: transparent;
         }
+        /* 이미지/비디오가 각 칸을 채우도록 */
         #board01 video,
         #board01 img {
             width: 100%;
@@ -133,9 +141,16 @@
             object-fit: cover;
             display: block;
             background: #000;
-            aspect-ratio: 16/9;
         }
- #intro {
+
+        /* 플레이어 영역이 보드 전체를 채우도록 보장 */
+        .player-area {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        #intro {
             width: 100vw; height: 100vh;
             background: url('https://raw.githubusercontent.com/BenCizion/Att_self/main/꽃게당 배경 패턴(용량)_6.webp') center/cover no-repeat;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -163,14 +178,15 @@
             <!-- 저장 버튼 추가 -->
             <button id="saveBtn" type="button">이미지 저장</button>
 
-<div class="player-area" id="mainPlayerArea">
-            <div id="board01">
-                <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder1.png" alt="" />             
-                <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder2.png" alt=""></video>
-                <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder3.png" alt=""></video>
-                <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder4.png" alt=""></video>
+            <div class="player-area" id="mainPlayerArea">
+                <div id="board01">
+                    <!-- 이미지들을 2x2 그리드에 맞게 배치 -->
+                    <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder1.png" alt="" />
+                    <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder2.png" alt="" />
+                    <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder3.png" alt="" />
+                    <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder4.png" alt="" />
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
