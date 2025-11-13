@@ -180,7 +180,7 @@
 
             <div class="player-area" id="mainPlayerArea">
                 <div id="board01">
-                    <!-- 이미지들을 2x2 그리드에 맞게 배치 -->
+                    <!-- crossOrigin 속성은 JS에서도 설정합니다 (서버가 CORS 허용해야 함) -->
                     <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder1.png" alt="" />
                     <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder2.png" alt="" />
                     <img src="https://raw.githubusercontent.com/kimraki/torder/main/torder3.png" alt="" />
@@ -196,11 +196,56 @@
     
 <script>
     const saveBtn = document.getElementById('saveBtn');
-    // 캡처 타겟을 document.body (전체 화면)로 변경 
-    const captureTarget = document.body;
+    // 캡처 타겟 (원하면 capturePanel 또는 mainPlayerArea만 캡처)
+    const captureTarget = document.body; // 전체화면 캡처
+    const imgs = document.querySelectorAll('#board01 img');
+
+    // 1) crossOrigin 설정 (DOM에 이미 있으면 JS로 재설정해도 적용됩니다)
+    imgs.forEach(img => {
+        // 만약 서버가 CORS 헤더(Access-Control-Allow-Origin: *)를 제공한다면 'anonymous'로 설정하세요.
+        // (이 속성이 없으면 html2canvas의 useCORS가 무의미할 수 있습니다.)
+        try { img.crossOrigin = 'anonymous'; } catch (e) { /* ignore */ }
+    });
+
+    // 2) 이미지 로드 완료 대기 함수
+    function imagesLoaded(nodeList) {
+        const arr = Array.from(nodeList);
+        return Promise.all(arr.map(img => {
+            if (img.complete && img.naturalWidth !== 0) return Promise.resolve();
+            return new Promise(resolve => {
+                img.addEventListener('load', () => resolve(), { once: true });
+                img.addEventListener('error', () => {
+                    // error가 나도 resolve시켜서 캡처 시도는 계속함(하지만 결과는 영향을 받을 수 있음)
+                    console.warn('이미지 로드 실패:', img.src);
+                    resolve();
+                }, { once: true });
+            });
+        }));
+    }
+
+    // 버튼은 이미지 준비될 때까지 비활성화
+    saveBtn.disabled = true;
+    imagesLoaded(imgs).then(() => {
+        saveBtn.disabled = false;
+        console.log('모든 이미지 로드 완료');
+    });
 
     saveBtn.addEventListener('click', function() {
-        html2canvas(captureTarget).then(canvas => {
+        saveBtn.disabled = true;
+        saveBtn.textContent = '저장 중...';
+
+        // html2canvas 옵션:
+        // - useCORS: 외부 이미지에 crossOrigin을 사용해서 불러오도록 시도
+        // - allowTaint: false (tainted canvas 허용하지 않음, toDataURL이 동작하려면 false여야 함)
+        // - imageTimeout: 이미지 로드 타임아웃(ms) 조절
+        // - scale: 고해상도 캡처 필요시 devicePixelRatio 또는 숫자 지정
+        html2canvas(captureTarget, {
+            useCORS: true,
+            allowTaint: false,
+            imageTimeout: 15000,
+            logging: false,
+            scale: window.devicePixelRatio || 1
+        }).then(canvas => {
             const imageURL = canvas.toDataURL('image/png');
 
             const link = document.createElement('a');
@@ -209,6 +254,14 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            saveBtn.disabled = false;
+            saveBtn.textContent = '이미지 저장';
+        }).catch(err => {
+            console.error('캡처 실패:', err);
+            alert('이미지 캡처에 실패했습니다. 콘솔 로그를 확인하세요.');
+            saveBtn.disabled = false;
+            saveBtn.textContent = '이미지 저장';
         });
     });
 </script>
