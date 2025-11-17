@@ -21,7 +21,7 @@
                             <Tracking event="complete">http://example.com/tracking/complete</Tracking>
                         </TrackingEvents>
 
-                         <VideoClicks>
+                        <VideoClicks>
                             <ClickTracking id="blog">
                                 <![CDATA[https://iabtechlab.com](https://iabtechlab.com)]>
                             </ClickTracking>
@@ -29,11 +29,11 @@
                         </VideoClicks>
 
                         <MediaFiles>
-                            <MediaFile id="5241" delivery="progressive" type="video/mp4" bitrate="300" width="1280" height="800" minBitrate="300" maxBitrate="1080" scalable="1" maintainAspectRatio="1" codec="0">
-                                <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro.mp4](https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro.mp4)]>
+                            <!-- torder4.png 이미지 파일 추가 (GitHub raw URL로 지정해야 외부에서 바로 보임) -->
+                            <MediaFile id="png1" delivery="progressive" type="image/png" width="1280" height="800" scalable="1" maintainAspectRatio="1">
+                                <![CDATA[https://raw.githubusercontent.com/kimraki/torder/94e8faf1e5802f64344224fb6ad2ac98a0397ff3/torder4.png]]>
                             </MediaFile>
                         </MediaFiles>
-
                     </Linear>
                 </Creative>
             </Creatives>
