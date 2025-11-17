@@ -15,7 +15,7 @@
             <Creatives>
                 <Creative id="5480" sequence="1">
                     <Linear>
-                        <Duration>00:00:16</Duration>
+                        <Duration>00:00:10</Duration>
                         <TrackingEvents>
                             <Tracking event="start">http://example.com/tracking/start</Tracking>
                             <Tracking event="complete">http://example.com/tracking/complete</Tracking>
@@ -30,7 +30,7 @@
 
                         <MediaFiles>
                             <!-- torder4.png 이미지 파일 추가 (GitHub raw URL로 지정해야 외부에서 바로 보임) -->
-                            <MediaFile id="png1" delivery="progressive" type="image/png" width="1280" height="800" scalable="1" maintainAspectRatio="1">
+                            <MediaFile id="png1" delivery="progressive" type="image/mp4" bitrate="500" width="1280" height="800" minBitrate="360" maxBitrate="1080" scalable="1" maintainAspectRatio="1" codec="0">
                                 <![CDATA[https://raw.githubusercontent.com/kimraki/torder/94e8faf1e5802f64344224fb6ad2ac98a0397ff3/torder4.png]]>
                             </MediaFile>
                         </MediaFiles>
