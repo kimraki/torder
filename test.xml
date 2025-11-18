@@ -2,16 +2,17 @@
     <Ad id="20001">
         <InLine>
             <AdSystem version="4.0">iabtechlab</AdSystem>
-            <AdTitle>iabtechlab video ad</AdTitle>
+            <AdTitle>iabtechlab video/image ad</AdTitle>
             <Pricing model="cpm" currency="USD">
                 <![CDATA[ 25.00 ]]>
             </Pricing>
             <Error>http://example.com/error</Error>
-            <Impression id="Impression-ID">http://example.com/track/impression</Impression>
-
+            <!-- Tracking URLs (Impression) 두 개 -->
+            <Impression id="Impression-1">http://example.com/track/impression1</Impression>
+            <Impression id="Impression-2">http://example.com/track/impression2</Impression>
             <Creatives>
                 <Creative id="5480" sequence="1">
-                    <!-- NonLinear 이미지 광고 -->
+                    <!-- NonLinear 이미지 광고만, 해상도 1280x800, 미디어 1개 -->
                     <NonLinearAds>
                         <NonLinear id="img_banner1" width="1280" height="800" minSuggestedDuration="00:00:10">
                             <StaticResource creativeType="image/png">
@@ -26,9 +27,13 @@
             </Creatives>
             <Extensions>
                 <Extension type="iab-Count">
+                    <!-- RPS 기준 명기(300 이상) -->
                     <total_available>
                         <![CDATA[ 2 ]]>
                     </total_available>
+                    <rps>
+                        <![CDATA[ 300+ ]]>
+                    </rps>
                 </Extension>
             </Extensions>
         </InLine>
