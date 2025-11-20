@@ -117,6 +117,17 @@
         #saveBtn:hover {
             background-color: #0056b3;
         }
+
+        .qr-img {
+    width: 153px;
+    height: 153px;
+    display: block;
+    border-radius: 8px;
+    border: 3px solid #16c60c;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
     </style>
 </head>
 <body>
@@ -124,16 +135,16 @@
     <div class="torder-screen">
 
         <div class="left-panel">
-            <h2>#티오더 해시태그 이벤트!</h2>
-            <div class="qr-placeholder">
-                (QR 코드 영역)
-            </div>
-            <p>
-                인스타그램에 <strong>#티오더</strong> 태그로<br />
-                인증샷을 올리면<br />
-                콘텐츠가 오른쪽에 뿅!
-            </p>
-        </div>
+    <h2>#티오더 해시태그 이벤트!</h2>
+    <div class="qr-placeholder" style="border:none; box-shadow:none; background:none; padding:0;">
+        <img src="https://github.com/kimraki/torder/raw/main/QR.jpg" alt="QR 코드" class="qr-img" />
+    </div>
+    <p>
+        인스타그램에 <strong>#티오더</strong> 태그로<br /><br>
+        인증샷을 올리면<br /><br>
+        콘텐츠가 오른쪽에 뿅!
+    </p>
+</div>
 
         <div class="right-panel" id="capturePanel">
             <!-- 저장 버튼 추가 -->
