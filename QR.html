@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>인스타그램 콘텐츠 QR 랜딩페이지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+    color: #333;
+  }
+  p {
+    font-size: 1em;
+    color: #666;
+  }
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+  .post {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 8px;
+  }
+  .post img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  }
+  .qr-section {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .qr-code {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #0077ff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #005bb5;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>우리의 인스타그램을 만나보세요!</h1>
+  <p>QR 코드를 스캔하거나 아래 콘텐츠를 둘러보세요</p>
+</header>
+
+<script type="text/javascript">
+	(function(d, s) {
+		var j, e = d.getElementsByTagName(s)[0], h = "https://cdn.attractt.com/embed_v2/index.js";
+		if (typeof AttracttTower === "function" || e.src === h) { return; }
+		j = d.createElement(s);
+		j.src = h;
+		j.async = true;
+		e.parentNode.insertBefore(j, e);
+	})(document, "script");
+</script>
+<div class="attractt-container" data-idx="0" data-code="3SwYxPrHIjtMpYA" data-board="slide"></div>
+
+</body>
+</html>
