@@ -12,11 +12,11 @@
             <Impression id="Impression-2">http://example.com/track/impression2</Impression>
             <Creatives>
                 <Creative id="5480" sequence="1">
-                    <!-- NonLinear 이미지 광고만, 해상도 1280x800, 미디어 1개 -->
+                    <!-- NonLinear 이미지 광고만, 해상도 1200x800, 미디어 1개 -->
                     <NonLinearAds>
                         <NonLinear id="img_banner1" width="1200" height="800" minSuggestedDuration="00:00:10">
                             <StaticResource creativeType="image/png">
-                                <![CDATA[https://raw.githubusercontent.com/kimraki/torder/main/torder4.png]]>
+                                <![CDATA[https://raw.githubusercontent.com/kimraki/torder/main/torder5.png]]>
                             </StaticResource>
                             <NonLinearClickThrough>
                                 <![CDATA[https://iabtechlab.com]]>
