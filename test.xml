@@ -14,7 +14,7 @@
                 <Creative id="5480" sequence="1">
                     <!-- NonLinear 이미지 광고만, 해상도, 미디어 1개 -->
                     <NonLinearAds>
-                        <NonLinear id="img_banner1" width="1200" height="700" minSuggestedDuration="00:00:10">
+                        <NonLinear id="img_banner1" width="1200" height="750" minSuggestedDuration="00:00:10">
                             <StaticResource creativeType="image/png">
                                 <![CDATA[https://raw.githubusercontent.com/kimraki/torder/main/torder5.png]]>
                             </StaticResource>
